@@ -1,0 +1,64 @@
+{% extends "base_simple_zillow.html" %}
+
+{% block title %}Home - Bengaluru Property Value Estimator{% endblock %}
+
+{% block content %}
+    <section class="hero-section-enhanced">
+        {# Optional: Background image can be set in CSS #}
+        <div class="hero-overlay"></div> {# For readability over image #}
+        <div class="container hero-content-enhanced">
+            <h1>Find Your Property's Estimated Value in Bengaluru</h1>
+            <p class="subtitle">Enter key details to get a data-driven estimate quickly and easily.</p>
+            {# Clear Call to Action #}
+            <a href="{{ url_for('predict') }}" class="btn btn-primary btn-large hero-cta">Get Started Now</a>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Use Our Estimator?</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    {# Placeholder Icon - Replace with actual icon later #}
+                    <div class="icon-placeholder">📊</div>
+                    <h3>Data-Driven</h3>
+                    <p>Estimates based on recent market trends and property data analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-placeholder">⏱️</div>
+                    <h3>Fast & Easy</h3>
+                    <p>Get an estimate in minutes just by providing basic property details.</p>
+                </div>
+                <div class="feature-card">
+                     <div class="icon-placeholder">💡</div>
+                    <h3>Informative</h3>
+                    <p>A helpful starting point for sellers, buyers, or curious homeowners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works-section">
+         <div class="container">
+             <h2 class="section-title">Simple Steps</h2>
+             <div class="steps-container">
+                 <div class="step-item">
+                     <div class="step-number">1</div>
+                     <h4>Enter Details</h4>
+                     <p>Provide Location, SqFt, Bathrooms, Balconies, and BHK.</p>
+                 </div>
+                  <div class="step-item">
+                    <div class="step-number">2</div>
+                     <h4>Predict Price</h4>
+                     <p>Click the button to run the estimation model.</p>
+                 </div>
+                  <div class="step-item">
+                    <div class="step-number">3</div>
+                     <h4>View Estimate</h4>
+                     <p>See the calculated price estimate instantly.</p>
+                 </div>
+             </div>
+         </div>
+    </section>
+
+{% endblock content %}

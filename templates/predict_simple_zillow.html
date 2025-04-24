@@ -1,0 +1,85 @@
+{% extends "base_simple_zillow.html" %}
+
+{% block title %}Estimate Property Price{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="form-wrapper-enhanced">
+        <h2 class="form-title">Estimate Your Bengaluru Property Value</h2>
+        <p class="form-subtitle">Fill in the details below.</p>
+
+        {# Display general output/error messages from Flask #}
+        {% if output %}
+            {# Use a more specific class for general errors #}
+            <div class="alert alert-danger">{{ output }}</div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('predict') }}" class="predict-form-enhanced" novalidate>
+            {{ form.hidden_tag() }} {# CSRF protection #}
+
+            <fieldset>
+                <legend>Property Information</legend>
+
+                <div class="form-group">
+                    {{ form.location.label(class="form-label") }}
+                    {{ form.location(class="form-control form-select") }}
+                    {# Display field-specific validation errors #}
+                    {% if form.location.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in form.location.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.total_sqft.label(class="form-label") }}
+                    {{ form.total_sqft(class="form-control", placeholder="e.g., 1250") }}
+                    {% if form.total_sqft.errors %}
+                        <div class="invalid-feedback">
+                             {% for error in form.total_sqft.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {# Use a grid or flex row for better alignment #}
+                <div class="form-grid">
+                    <div class="form-group">
+                        {{ form.bath.label(class="form-label") }}
+                        {{ form.bath(class="form-control", placeholder="e.g., 2") }}
+                         {% if form.bath.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.bath.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.BHK.label(class="form-label") }}
+                        {{ form.BHK(class="form-control", placeholder="e.g., 3") }}
+                         {% if form.BHK.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.BHK.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    {{ form.balcony.label(class="form-label") }}
+                    {{ form.balcony(class="form-control", placeholder="e.g., 1") }}
+                    {% if form.balcony.errors %}
+                        <div class="invalid-feedback">
+                             {% for error in form.balcony.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </fieldset>
+
+            <div class="form-actions">
+                {{ form.submit(class="btn btn-primary btn-submit") }} {# Use generic btn classes #}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

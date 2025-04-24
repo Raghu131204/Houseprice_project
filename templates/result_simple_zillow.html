@@ -1,0 +1,41 @@
+{% extends "base_simple_zillow.html" %}
+
+{% block title %}Prediction Result{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="result-wrapper-enhanced">
+        <h2 class="result-title">Estimated Property Price</h2>
+
+        <div class="result-highlight">
+            {% if predicted_price and predicted_price != 'N/A' %}
+                <span class="estimated-label">Estimated Value</span>
+                <p class="estimated-price-value">₹ {{ predicted_price }}</p> {# Display the formatted string #}
+            {% else %}
+                 <p class="result-error">Could not generate estimate.</p>
+            {% endif %}
+        </div>
+
+        {# Display the input details used #}
+        {% if input_details %}
+        <div class="input-summary-enhanced">
+            <h3 class="summary-title">Based on Provided Details:</h3>
+            <dl class="details-list">
+                <dt>Location:</dt><dd>{{ input_details.location | escape }}</dd>
+                <dt>Total Sqft:</dt><dd>{{ input_details.total_sqft }}</dd>
+                <dt>Bathrooms:</dt><dd>{{ input_details.bath }}</dd>
+                <dt>Balconies:</dt><dd>{{ input_details.balcony }}</dd>
+                <dt>BHK:</dt><dd>{{ input_details.BHK }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+
+        <div class="result-actions">
+            <a href="{{ url_for('predict') }}" class="btn btn-secondary">Estimate Another Property</a>
+        </div>
+
+        <p class="disclaimer">Note: This is an automated estimate and should be used as a guideline only. Consult a real estate professional for a formal valuation.</p>
+
+    </div>
+</div>
+{% endblock content %}

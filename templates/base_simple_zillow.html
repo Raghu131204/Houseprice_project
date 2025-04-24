@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bengaluru Price Predictor{% endblock %}</title>
+    {# Link to the NEW Enhanced CSS file #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_simple_zillow.css') }}">
+    {# Optional: Add Google Fonts or Icon Library links here #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    {# Simple text logo, can be replaced with an image #}
+                    <a href="{{ url_for('home') }}">HomeSight BNG</a>
+                </div>
+                <ul class="nav-links">
+                    {# Check current page to add 'active' class #}
+                    <li><a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a></li>
+                    <li><a href="{{ url_for('predict') }}" class="{{ 'active' if request.endpoint == 'predict' else '' }}">Estimate Price</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="{{ 'active' if request.endpoint == 'contact' else '' }}">Contact</a></li>
+                    {# Placeholder links common on real estate sites #}
+                    <li><a href="#">Buy</a></li>
+                    <li><a href="#">Sell</a></li>
+                </ul>
+                 {# Add mobile menu toggle if needed later #}
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        {# Page-specific content will go here #}
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-links">
+                 {# Simple footer links #}
+                 <a href="#">About Us</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="{{ url_for('contact') }}">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                © 2024 HomeSight BNG. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

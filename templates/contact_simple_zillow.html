@@ -1,0 +1,27 @@
+{% extends "base_simple_zillow.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="contact-wrapper-enhanced">
+        <h2 class="contact-title">Get In Touch</h2>
+        <p class="contact-subtitle">Have questions or feedback about our estimator? Let us know.</p>
+
+        <div class="contact-methods">
+            <div class="contact-method">
+                 <h4>General Inquiries</h4>
+                 <p>For questions about the tool or results.</p>
+                 <p><strong>Email:</strong> <a href="mailto:info@homesightbng.example">info@homesightbng.example</a></p>
+            </div>
+             <div class="contact-method">
+                 <h4>Technical Support</h4>
+                 <p>If you encounter any issues using the site.</p>
+                 <p><strong>Email:</strong> <a href="mailto:support@homesightbng.example">support@homesightbng.example</a></p>
+            </div>
+        </div>
+         {# Add a simple map placeholder if desired #}
+         {# <div class="map-placeholder-contact">Office Location Placeholder</div> #}
+    </div>
+</div>
+{% endblock content %}
