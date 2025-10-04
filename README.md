@@ -53,7 +53,27 @@ pip install -r requirements.txt
 3. Prepare the dataset
 --Place your CSV or dataset files inside the Dataset/ directory (or modify paths accordingly).
 --Ensure the same preprocessing pipeline that your notebooks use.
-
-4.Running the Web App
+## Usage
+# Running the Web App
 python app.py
 
+Then navigate to http://127.0.0.1:5000/ to access the user interface.
+
+# Predicting
+
+--Use the form to enter house features (e.g. number of rooms, location, area, etc.)
+--Submit will trigger prediction using model.joblib
+--The result (predicted price) is shown on the web page
+
+## Model Training & EDA
+
+--EDA.ipynb: missing value analysis, outlier detection, correlation plots, feature engineering, etc.
+--Modeltraining.ipynb: splitting data, trying different algorithms, hyperparameter tuning, validation, final model selection
+--Final model is saved as model.joblib
+
+## Web App Details
+
+--app.py: Flask app that handles routes, prediction logic, and rendering templates
+--forms.py: Form classes (e.g. Flask-WTF) for validating input
+--templates/: HTML templates (index, result pages)
+--static/: CSS styles, JavaScript, images
