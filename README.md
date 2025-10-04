@@ -9,10 +9,7 @@ A project for predicting house prices using machine learning, wrapped in a web a
 - [Installation](#installation)  
 - [Usage](#usage)  
 - [Model Training & EDA](#model-training--eda)  
-- [Web App](#web-app)  
-- [Requirements](#requirements)  
-- [Contributing](#contributing)  
-- [License](#license)  
+- [Web App](#web-app)   
 
 ## Overview
 This repository provides a pipeline for:
@@ -54,12 +51,12 @@ pip install -r requirements.txt
 --Place your CSV or dataset files inside the Dataset/ directory (or modify paths accordingly).
 --Ensure the same preprocessing pipeline that your notebooks use.
 ## Usage
-# Running the Web App
+## Running the Web App
 python app.py
 
 Then navigate to http://127.0.0.1:5000/ to access the user interface.
 
-# Predicting
+## Predicting
 
 --Use the form to enter house features (e.g. number of rooms, location, area, etc.)
 --Submit will trigger prediction using model.joblib
