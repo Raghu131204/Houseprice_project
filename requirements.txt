@@ -3,5 +3,6 @@ WTForms==3.2.1
 Flask-WTF==1.2.2
 pandas==2.2.3
 joblib==1.4.2
-scikit-learn
-category_encoders
+scikit-learn==1.6.1
+category_encoders==2.6.3
+

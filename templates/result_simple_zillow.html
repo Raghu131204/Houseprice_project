@@ -1,27 +1,28 @@
 {% extends "base_simple_zillow.html" %}
 
-{% block title %}Prediction Result{% endblock %}
+{% block title %}Predicted Price{% endblock %}
 
 {% block content %}
 <div class="page-container">
     <div class="result-wrapper-enhanced">
-        <h2 class="result-title">Estimated Property Price</h2>
+
+        <h2 class="result-title">Your Property Value Estimate</h2>
 
         <div class="result-highlight">
-            {% if predicted_price and predicted_price != 'N/A' %}
-                <span class="estimated-label">Estimated Value</span>
-                <p class="estimated-price-value">₹ {{ predicted_price }}</p> {# Display the formatted string #}
+            {% if predicted_price %}
+                <span class="estimated-label">Estimated Market Value</span>
+                <p class="estimated-price-value">₹ {{ predicted_price }}</p>
             {% else %}
-                 <p class="result-error">Could not generate estimate.</p>
+                <p class="result-error">Unable to generate estimate.</p>
             {% endif %}
         </div>
 
-        {# Display the input details used #}
         {% if input_details %}
         <div class="input-summary-enhanced">
-            <h3 class="summary-title">Based on Provided Details:</h3>
+            <h3 class="summary-title">Calculation Based On:</h3>
+
             <dl class="details-list">
-                <dt>Location:</dt><dd>{{ input_details.location | escape }}</dd>
+                <dt>Location:</dt><dd>{{ input_details.location }}</dd>
                 <dt>Total Sqft:</dt><dd>{{ input_details.total_sqft }}</dd>
                 <dt>Bathrooms:</dt><dd>{{ input_details.bath }}</dd>
                 <dt>Balconies:</dt><dd>{{ input_details.balcony }}</dd>
@@ -31,10 +32,14 @@
         {% endif %}
 
         <div class="result-actions">
-            <a href="{{ url_for('predict') }}" class="btn btn-secondary">Estimate Another Property</a>
+            <a href="{{ url_for('predict') }}" class="btn btn-secondary">
+                Estimate Another Property
+            </a>
         </div>
 
-        <p class="disclaimer">Note: This is an automated estimate and should be used as a guideline only. Consult a real estate professional for a formal valuation.</p>
+        <p class="disclaimer">
+            Estimates are automatic and approximate. Consult a professional for verified valuation.
+        </p>
 
     </div>
 </div>
