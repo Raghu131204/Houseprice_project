@@ -5,4 +5,4 @@ pandas==2.2.3
 joblib==1.4.2
 scikit-learn==1.6.1
 category_encoders==2.6.3
-
+gunicorn
